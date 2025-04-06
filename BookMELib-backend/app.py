@@ -4,6 +4,10 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from db import db
+from dotenv import load_dotenv
+
+
+import os
 from blocklist import BLOCKLIST
 from resources.business import blp as BusinessBlueprint
 from resources.auth import blp as AuthBlueprint
@@ -14,6 +18,7 @@ from resources.category import blp as CategoryBlueprint
 from resources.appointment import blp as AppointmentBlueprint
 
 def create_app(db_url=None):
+    load_dotenv(".env.dev") # Load environment variables from .env file
     app = Flask(__name__)
     app.config["PROPAGATE_EXCEPTIONS"] = True
     app.config["API_TITLE"] = "BookMeLib REST API"
@@ -22,9 +27,12 @@ def create_app(db_url=None):
     app.config["OPENAPI_URL_PREFIX"] = "/"
     app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui"
     app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://neondb_owner:npg_5Ssf3JubcgMD@ep-tight-brook-a4xqnq84-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["PROPAGATE_EXCEPTIONS"] = True
+
+    # Load environment variables from .env file
+    # load_dotenv(".env.dev")  # or .env.prod
     
     # Initialize database
     db.init_app(app)
