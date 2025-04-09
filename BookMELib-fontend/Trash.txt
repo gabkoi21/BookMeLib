@@ -1,0 +1,25 @@
+✅ Example Palette:
+Primary: Teal (#14B8A6)
+
+Background: Light Gray (#F3F4F6)
+
+Text: Dark Gray (#374151)
+
+CTA Buttons: Indigo or Green
+
+Accent: Soft Blue or Yellow
+
+
+<div className="flex items-center bg-gray-200 text-black rounded-lg p-1 gap-2">
+          {tabsStatus.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-4 py-1 rounded border transition ${
+                activeTab === tab
+                  ? "border-gray-100 bg-gray-100 text-black font-medium"
+                  : "border-transparent hover:border-gray-400"
+              }`}
+            >
+              {tab}
+            </button>
