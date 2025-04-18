@@ -50,7 +50,7 @@ function Login() {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white shadow-md rounded-md p-6">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">DirtMan</h2>
+          <h2 className="text-2xl font-bold text-gray-800">AppointmentGuy</h2>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -93,7 +93,7 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="w-full bg-nav text-white font-medium py-2 rounded-sm focus:outline-none"
+            className="w-full bg-teal-300 text-white font-medium py-2 rounded-sm focus:outline-none"
           >
             Sign In
           </button>

@@ -9,7 +9,7 @@ import React from "react";
 
 import useAuthStore from "../stores/authStore";
 
-const AdminHeaderNav = () => {
+const AdminHeaderNav = ({ children }) => {
   // State for managing dropdowns and mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -58,10 +58,16 @@ const AdminHeaderNav = () => {
             <div className="relative flex items-center">
               {/* Profile Icon */}
               <div className="relative">
-                <Button onClick={toggledrowpdown} className="border-none">
-                  <Icon path={mdiAccountCircle} size={1.5} className="mr-1" />
-                </Button>
-
+                <div className="flex items-center gap-1">
+                  {children}
+                  <Button
+                    onClick={toggledrowpdown}
+                    className="p-0 border-none hover:bg-transparent focus:ring-0"
+                    aria-label="User Menu"
+                  >
+                    <Icon path={mdiAccountCircle} size={1.5} />
+                  </Button>
+                </div>
                 {/* Dropdown */}
                 {dropNav && (
                   <div className="absolute right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg w-40">

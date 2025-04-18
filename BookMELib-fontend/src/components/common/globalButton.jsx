@@ -1,11 +1,18 @@
-const GlobalButton = ({ text, onClick }) => {
+import { Button } from "@/components/ui/button";
+
+const GlobalButton = ({ children, onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      className="px-4 py-1 text-white bg-gray-950 capitalize rounded transition"
-    >
-      {text}
-    </button>
+    <>
+      {
+        <Button
+          variant="ghost"
+          className="px-4 py-1 text-white  capitalize rounded transition"
+          onClick={onClick}
+        >
+          {children}
+        </Button>
+      }
+    </>
   );
 };
 

@@ -1,6 +1,3 @@
-// Description: A reusable data table component that accepts columns and data as props and renders a table with the provided data.
-// It also allows for custom rendering of rows through a renderRow prop.
-
 const DataTable = ({ columns, data, renderRow }) => {
   return (
     <div className="relative overflow-x-auto rounded-lg mt-5">

@@ -7,9 +7,11 @@ import { columns } from "./BusinessColumns";
 import BusinessRow from "./BusinessRow";
 import { businessData } from "../../../data/BusinesseData";
 import ActiveStatusNavigation from "../../common/StatusNavigation";
+import Icon from "@mdi/react";
+import { mdiPlus } from "@mdi/js";
 
 const SearchBusiness = () => {
-  const [activeTab, setActiveTab] = useState("All Business");
+  const [activeTab, setActiveTab] = useState("allbusiness");
 
   return (
     <>
@@ -22,10 +24,22 @@ const SearchBusiness = () => {
         </div>
         <div className="flex items-center gap-2">
           <GlobalFilter />
-          <GlobalButton text="Add Business" />
+          <GlobalButton>
+            <span className="flex items-center gap-2">
+              <Icon path={mdiPlus} size={1} />
+              Add Business
+            </span>
+          </GlobalButton>
         </div>
       </div>
-      <GlobalSearchBar placeholder="Search Business" />
+      <GlobalSearchBar>
+        <div>
+          <input
+            placeholder="Search Business "
+            className="bg-white border border-gray-300 text-gray-900 text-sm rounded-md block w-full pl-10 py-2.5 dark:bg-white dark:border-gray-600 dark:text-white focus:outline-none focus:ring-0"
+          />
+        </div>
+      </GlobalSearchBar>
       <BusinessTable activeTab={activeTab} />
     </>
   );
@@ -34,7 +48,7 @@ const SearchBusiness = () => {
 const BusinessTable = ({ activeTab }) => {
   return (
     <div className="mt-5">
-      {activeTab === "All Business" && (
+      {activeTab === "allbusiness" && (
         <DataTable
           columns={columns}
           data={businessData}
@@ -43,9 +57,9 @@ const BusinessTable = ({ activeTab }) => {
           )}
         />
       )}
-      {activeTab === "Pending Approved" && <p>Pending approval businesses</p>}
+      {activeTab === "pendingapproved" && <p>Pending approval businesses</p>}
       {activeTab === "Active" && <p>Active businesses</p>}
-      {activeTab === "Suspend" && <p>Suspended businesses</p>}
+      {activeTab === "suspend" && <p>Suspended businesses</p>}
     </div>
   );
 };

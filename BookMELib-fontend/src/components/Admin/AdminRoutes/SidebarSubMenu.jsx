@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
 import Icon from "@mdi/react";
-import SidebarBusinessDropdown from "./SidebarNavSection.jsx";
+import BusinessSidebarDropdown from "./BusinessSideBarNavDropdown";
 
 const SidebarNavDropdown = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,11 +29,10 @@ const SidebarNavDropdown = ({ item }) => {
       </div>
 
       {isOpen && (
-        <SidebarBusinessDropdown parentTo={item.to} subItems={item.subItems} />
+        <BusinessSidebarDropdown parentTo={item.to} subItems={item.subItems} />
       )}
     </>
   );
 };
 
 export default SidebarNavDropdown;
-// This component handles the dropdown functionality for the sidebar navigation.

@@ -2,7 +2,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const SidebarBusinessDropdown = ({ parentTo, subItems }) => {
+const BusinessSidebarDropdown = ({ parentTo, subItems }) => {
   return (
     <ul className="mt-2 ml-6">
       {subItems.map((subItem) => (
@@ -26,4 +26,4 @@ const SidebarBusinessDropdown = ({ parentTo, subItems }) => {
   );
 };
 
-export default SidebarBusinessDropdown;
+export default BusinessSidebarDropdown;
