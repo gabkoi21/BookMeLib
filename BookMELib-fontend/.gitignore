@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Local database
+instance/*.db
+
