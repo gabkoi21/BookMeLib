@@ -1,14 +1,12 @@
-import { Route, Navigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+// ProtectedRoute.js
+import { Navigate } from "react-router-dom";
+import useAuthStore from "@/stores/authStore";
 
-// A wrapper for protected routes
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/" />;
+const ProtectedRoute = ({ children, allowedTypes }) => {
+  const { user } = useAuthStore();
+  if (!user || !allowedTypes.includes(user.user_type)) {
+    return <Navigate to="/" replace />;
   }
-
   return children;
 };
 

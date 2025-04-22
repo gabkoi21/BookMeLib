@@ -19,5 +19,5 @@ class UserModel(db.Model):
 # Relationships
     appointments = db.relationship('AppointmentModel', back_populates='user')
     roles = db.relationship('RoleModel', secondary='user_roles', back_populates='users')
-    business = db.relationship('BusinessModel', back_populates='users')  # Add this lin
+    business = db.relationship('BusinessModel', back_populates='users')  # Add this line
 

@@ -1,5 +1,6 @@
-//  This component is used to render a single row in the business table
-//  It displays the business name, owner, status, registered date, appointments, and an action icon
+// This component is used to render a single row in the business table
+// It displays the business name, owner, status, registered date, appointments, and an action icon
+
 import Icon from "@mdi/react";
 import { mdiDotsVertical } from "@mdi/js";
 
@@ -14,13 +15,13 @@ const BusinessRow = ({ business }) => {
 
   return (
     <tr className="border-b hover:bg-gray-50 dark:hover:bg-gray-700">
-      <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">
+      <td className="px-4 py-2 font-medium text-gray-900 dark:text-white">
         {businessName}
       </td>
-      <td className="px-6 py-4">{owner}</td>
-      <td className="px-6 py-4">{registered}</td>
-      <td className="px-6 py-4">{appointments}</td>
-      <td className="px-6 py-4">
+      <td className="px-4 py-4">{owner}</td>
+      <td className="px-4 py-4">{registered}</td>
+      <td className="px-4 py-4">{appointments}</td>
+      <td className="px-4 py-4">
         <span
           className={`px-2 py-1 rounded-full text-xs font-semibold ${
             statusColor[status] || "bg-gray-200 text-gray-700"
@@ -29,7 +30,7 @@ const BusinessRow = ({ business }) => {
           {status}
         </span>
       </td>
-      <td className="px-6 py-4 text-right">
+      <td className="px-4 py-2 text-right">
         <Icon path={mdiDotsVertical} size={0.9} className="cursor-pointer" />
       </td>
     </tr>

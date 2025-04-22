@@ -12,7 +12,7 @@ const PageNavButtons = ({ activeTab, setActiveTab }) => {
         <button
           onClick={() => setActiveTab("profile")}
           className={`px-3 py-1 rounded-md hover:bg-gray-100 ${
-            activeTab === "profile" ? "bg-green-700 text-white" : "bg-gray-100"
+            activeTab === "profile" ? "bg-teal-500 text-white" : "bg-gray-100"
           }`}
         >
           Profile
@@ -139,7 +139,7 @@ const ProfileInformation = () => {
         {!isEditing ? (
           <button
             onClick={handleEdit}
-            className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 transition-colors duration-200"
+            className="px-4 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-500 transition-colors duration-200"
           >
             Edit Profile
           </button>

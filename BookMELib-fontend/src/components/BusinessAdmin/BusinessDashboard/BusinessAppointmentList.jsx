@@ -121,15 +121,15 @@ const ExtendedBottomComponent = () => {
             </p>
           </div>
 
-          <div className="flex gap-4">
-            <button className="border px-2.5 py-0.5 rounded-md">
-              <Icon path={mdiChevronLeft} size={1} />
+          <div className="flex items-center gap-2">
+            <button className="flex items-center gap-1 border border-gray-300 px-3 py-1 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-800">
+              <Icon path={mdiChevronLeft} size={0.9} />
+              Previous
             </button>
-            <button className="border px-2.5 py-0.5 rounded-md">1</button>
-            <button className="border px-2.5 py-0.5 rounded-md">2</button>
-            <button className="border px-2.5 py-0.5 rounded-md">3</button>
-            <button className="border px-2.5 py-0.5 rounded-md">
-              <Icon path={mdiChevronRight} size={1} />
+
+            <button className="flex items-center gap-1 border border-gray-300 px-3 py-1 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-800">
+              Next
+              <Icon path={mdiChevronRight} size={0.9} />
             </button>
           </div>
         </div>

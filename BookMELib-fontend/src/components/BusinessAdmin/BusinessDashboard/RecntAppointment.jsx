@@ -1,6 +1,32 @@
 import { useState } from "react";
-import AppointmentCard from "@/components/AppointmentCard";
+import Icon from "@mdi/react";
+import { mdiDotsHorizontal } from "@mdi/js";
+import { Link } from "react-router";
+// import Appointment from ".";
 
+const AppointmentCard = ({ name, service, time, status }) => {
+  return (
+    <div className="border p-4 rounded-md shadow-sm flex justify-between items-center">
+      <div>
+        <h3 className="text-lg font-semibold">{name}</h3>
+        <p className="text-sm text-gray-600">{service}</p>
+        <p className="text-xs text-gray-400">{time}</p>
+      </div>
+
+      {/* Status with black background, pill shape, and dots icon */}
+      <div className="flex items-center gap-2">
+        <span className="px-3 py-0.5 bg-black text-white text-sm rounded-full font-medium flex items-center gap-2">
+          {status}
+        </span>
+        <button>
+          <Icon path={mdiDotsHorizontal} size={0.8} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// RecntAppointments component
 const RecntAppointments = () => {
   const [tab, setTab] = useState("Upcoming");
 
@@ -66,9 +92,9 @@ const RecntAppointments = () => {
         ))}
       </div>
 
-      <div className="text-center mt-6 border py-2 rounded ">
+      <div className="text-center mt-6 border py-2 rounded">
         <button className="text-sm font-semibold text-black hover:underline">
-          View all appointments
+          <Link to="#">View all appointments</Link>;
         </button>
         <span className="ml-2">↗</span>
       </div>

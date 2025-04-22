@@ -17,16 +17,31 @@ class RoleList(MethodView):
     def get(self):
         """Get all roles"""
         return RoleModel.query.all()
-
+    
     @blp.arguments(RoleSchema)
-    # @jwt_required()
-    # @role_required("super_admin")
-    def post(self, role_data):
-        """Create a new role this is """
+    @jwt_required()
+    @role_required("super_admin")
+    def post(self , role_data):
+        
+        previous_role = RoleModel.query.filter_by(role=role_data["role"]).first()
+        if previous_role:
+            return {"message": f"Role '{role_data['role']}' already exists."}, 400
+        
         role = RoleModel(**role_data)
         db.session.add(role)
         db.session.commit()
         return {"message": "Role created successfully."}, 201
+            
+
+    # @blp.arguments(RoleSchema)
+    # @jwt_required()
+    # @role_required("super_admin")
+    # def post(self, role_data):
+    #     """Create a new role this is """
+    #     role = RoleModel(**role_data)
+    #     db.session.add(role)
+    #     db.session.commit()
+    #     return {"message": "Role created successfully."}, 201
 
 
 @blp.route("/<int:role_id>")

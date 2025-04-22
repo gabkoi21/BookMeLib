@@ -27,7 +27,7 @@ def create_user(user_data, required_type=None):
         abort(400, message=f"Invalid user type: {user_type}")
 
     # Check if the business exists O
-    if user_data.get("role") != "super_admin":
+    if user_type != "super_admin":
         if not user_data.get("business_id"):
             abort(400, message="Business ID is required for non-super-admin users.")
             
@@ -35,7 +35,6 @@ def create_user(user_data, required_type=None):
 
         if not business:
             abort(400, message="Business does not exist. Please choose a valid business.")
-
 
 
     # Create the user with the assigned role

@@ -4,7 +4,7 @@ import Icon from "@mdi/react";
 import { mdiBell, mdiBriefcaseCheck } from "@mdi/js";
 
 // Internal Dependencies
-import PageNav from "../components/PageNav";
+import PageNav from "../components/common/PageNav";
 
 // Navigation configuration
 const NAV_ITEMS = [

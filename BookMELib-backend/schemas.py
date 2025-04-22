@@ -6,7 +6,8 @@ from marshmallow import Schema, fields
 class RoleSchema(Schema):
     id = fields.Int(dump_only=True)
     role = fields.Str(required=True)
-    timestamp = fields.DateTime(required=True)  
+    timestamp = fields.DateTime(dump_only=True)  
+    # timestamp = fields.DateTime(required=True)  
 
 # ==============================
 # User Schema
@@ -19,7 +20,7 @@ class UserSchema(Schema):
     email = fields.Email(required=True)
     password = fields.Str(load_only=True, required=True)
     business_id = fields.Integer(required=False, allow_none=True)
-    user_type = fields.Str(required=True, default="user")
+    user_type = fields.Str(required=False, default="user")
     phone_number = fields.Str(required=True)
     address = fields.Str(required=False)
     timestamp = fields.DateTime(dump_only=True)  

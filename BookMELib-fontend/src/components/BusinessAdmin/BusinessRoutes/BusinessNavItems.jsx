@@ -1,8 +1,8 @@
 import {
   mdiViewDashboard,
-  mdiAccountGroup,
   mdiCalendarCheck,
   mdiCog,
+  mdiAccountGroup,
 } from "@mdi/js";
 
 // Navigation configuration with dropdown for Business Management
@@ -21,12 +21,12 @@ export const NAV_ITEMS = [
     ariaLabel: "Appointments",
   },
 
-  // {
-  //   to: "user",
-  //   label: "Staff Management",
-  //   icon: mdiAccountGroup,
-  //   ariaLabel: "User Management",
-  // },
+  {
+    to: "user",
+    label: "User Management",
+    icon: mdiAccountGroup,
+    ariaLabel: "User Management",
+  },
   {
     to: "settings",
     label: "Settings",

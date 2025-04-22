@@ -1,4 +1,3 @@
-# models/role.py
 from db import db
 from datetime import datetime
 from models.associations import user_roles

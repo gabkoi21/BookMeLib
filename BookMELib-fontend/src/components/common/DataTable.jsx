@@ -1,17 +1,17 @@
 const DataTable = ({ columns, data, renderRow }) => {
   return (
-    <div className="relative overflow-x-auto rounded-lg mt-5">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  border-gray-200 dark:border-gray-700">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="overflow-x-auto mt-5 rounded-lg border border-gray-200 dark:border-gray-700">
+      <table className="w-full  text-sm text-left text-gray-700 dark:text-gray-300 border-collapse">
+        <thead className="bg-gray-100 dark:bg-gray-800 text-xs uppercase ">
           <tr>
             {columns.map((col) => (
-              <th key={col.key} className="px-6 py-4">
+              <th key={col.key} className="px-4 py-3">
                 {col.label}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="bg-white dark:bg-gray-800">
+        <tbody className="bg-white dark:bg-gray-900">
           {data.map((item, idx) => renderRow(item, idx))}
         </tbody>
       </table>
